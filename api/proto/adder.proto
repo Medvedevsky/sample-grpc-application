@@ -1,0 +1,18 @@
+// чтобы запустить этот shit выполни  protoc --proto_path=api/proto --go_out=pkg/api --go-grpc_out=pkg/api api/proto/adder.proto
+syntax = "proto3";
+
+option go_package = "./api";
+
+service Adder {
+    rpc Add(AddRequest) returns (AddResponse) {};   
+}
+
+message AddRequest {
+    int32 x = 1;
+    int32 y = 2;
+}
+
+message AddResponse {
+    int32 result = 1;
+}
+
